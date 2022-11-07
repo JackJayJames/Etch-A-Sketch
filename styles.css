@@ -1,11 +1,11 @@
 #container {
     border: 1px dotted red;
-    width: 70%;
+    width: 960px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
 #container > * {
     border: 1px dotted red;
-    flex: 1 0 6%;
+    /*flex: 0 0 auto;*/
 }
