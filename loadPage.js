@@ -52,16 +52,27 @@ function loadPage(size)
     }));
 }
 
-function eraseDivs()
+function eraseContainer()
 {
     const container = document.querySelector("#container");
-    container.innerHTML = "";
+    container.remove();
 }
 
 function resizedContainer()
 {
-    const size = prompt("Enter your size (entered number must be from 1 to 100)");
-    eraseDivs();
+    let size = prompt("Enter your size (entered number must be from 1 to 100)");
+    while(true)
+    {
+        if(size > 0 && size < 101)
+        {
+            break;
+        }
+        else
+        {
+            size = prompt("Wrong input! Please enter number from 1 to 100");
+        }
+    }
+    eraseContainer();
     loadPage(size);
 }
 
@@ -69,7 +80,6 @@ function revert_divs_color()
 {
     const divs = document.querySelectorAll(".divs");
     divs.forEach(div => div.style.background = "white");
-    //console.log(button);
 }
 
 const size_button = document.querySelector("#sizeButton");
