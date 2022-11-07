@@ -20,6 +20,7 @@ function createDivs(rows, cols)
     const container = createContainer();
     let size = get_size_element(rows, cols);
     console.log(size);
+
     for(i = 0; i < cols; i++)
     {
         for(j = 0; j < rows; j++)
@@ -38,7 +39,6 @@ function createDivs(rows, cols)
 
 function hoverEvent(id)
 {
-    //console.log(id);
     const div = document.getElementById(id);
     div.style.background = "blue";
 }
