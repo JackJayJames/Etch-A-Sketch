@@ -1,6 +1,7 @@
 #container {
     border: 1px dotted red;
     width: 70%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
 }

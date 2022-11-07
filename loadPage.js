@@ -1,4 +1,4 @@
-console.log("here");
+console.log("load page here");
 
 function createContainer()
 {
@@ -21,10 +21,11 @@ function createDivs(rows, cols)
         }
     }
     document.querySelector("body").appendChild(container);
+    return container;
 }
 
 function loadPage()
 {
-    const container = createContainer();
-    const squares = createDivs(16, 16);
+    const container = createDivs(16, 16);
+    console.log(container);
 }
