@@ -24,8 +24,18 @@ function createDivs(rows, cols)
     return container;
 }
 
+function hoverEvent(id)
+{
+    console.log(id);
+    const div = document.getElementById(id);
+    div.style.background = "blue";
+}
+
 function loadPage()
 {
     const container = createDivs(16, 16);
     console.log(container);
+    container.childNodes.forEach(MouseOver => MouseOver.addEventListener("mouseover", function (e) {
+        hoverEvent(e.target.id)
+    }));
 }
