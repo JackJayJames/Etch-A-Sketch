@@ -1,6 +1,10 @@
 #container {
     border: 1px dotted red;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
 }
 #container > * {
     border: 1px dotted red;
+    flex: 1 0 6%;
 }
