@@ -27,7 +27,7 @@ function createDivs(rows, cols)
 function hoverEvent(id)
 {
     console.log(id);
-    const div = document.getElementById(id);
+    //const div = document.getElementById(id);
     div.style.background = "blue";
 }
 
