@@ -1,0 +1,6 @@
+#container {
+    border: 1px dotted red;
+}
+#container > * {
+    border: 1px dotted red;
+}
