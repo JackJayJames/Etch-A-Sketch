@@ -1,5 +1,10 @@
 console.log("load page here");
 
+const setUp = {
+    randomColor: false,
+    blackColor: true
+}
+
 function createContainer()
 {
     const container = document.createElement("div");
@@ -38,10 +43,23 @@ function createDivs(rows, cols)
     return container;
 }
 
+function getRandomColor()
+{
+    return Math.floor(Math.random()*16777215).toString(16);
+}
+
 function hoverEvent(id)
 {
     const div = document.getElementById(id);
-    div.style.background = "blue";
+    if(setUp.blackColor === true && setUp.randomColor === false)
+    {
+        div.style.background = "black";
+    }
+    else if(setUp.blackColor === false && setUp.randomColor === true)
+    {
+        const Rcolor = getRandomColor();
+        div.style.background = `#${Rcolor}`;
+    }
 }
 
 function loadPage(size)
@@ -87,3 +105,15 @@ size_button.addEventListener("click", () => resizedContainer())
 
 const erase_button = document.querySelector("#eraseButton");
 erase_button.addEventListener("click", () => revert_divs_color());
+
+const random_button = document.querySelector("#randomColorButton");
+random_button.addEventListener("click", function () {
+    setUp.blackColor = false;
+    setUp.randomColor = true;
+});
+
+const black_button = document.querySelector("#blackColorButton");
+black_button.addEventListener("click", function () {
+    setUp.blackColor = true;
+    setUp.randomColor = false;
+})
