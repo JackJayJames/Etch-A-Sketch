@@ -62,12 +62,63 @@ function hoverEvent(id)
     }
 }
 
+function addremoveHoverEvent(event)
+{
+    //console.log(event);
+    const container = document.querySelector("#container");
+    if(event == "mousedown")
+    {
+        container.childNodes.forEach(Hover => Hover.addEventListener("mouseover", function (e) {
+            hoverEvent(e.target.id);
+        }));
+    }
+    else if(event == "mouseup")
+    {
+        /*container.childNodes.forEach(Hover => Hover.removeEventListener("mouseover", function (e) {
+            hoverEvent(e.target.id);
+        }));*/
+        removeEventListenerAll(container.childNodes, "mouseover", function (e) {
+            hoverEvent(e.target.id);
+        });
+    }
+}
+
+/*function addMouseoverEvent()
+{
+    console.log("add");
+    const container = document.querySelector("#container");
+    container.childNodes.forEach(addHover => addHover.addEventListener("mouseover", function (e) {
+        hoverEvent(e.target.id);
+    }));
+}
+
+function removeMouseoverEvent()
+{
+    console.log("remove");
+    const container = document.querySelector("#container");
+    container.childNodes.forEach(addHover => addHover.removeEventListener("mouseover", function (e) {
+        hoverEvent(e.target.id);
+    }));
+}*/
+
 function loadPage(size)
 {
     const container = createDivs(size, size);
-    container.childNodes.forEach(MouseOver => MouseOver.addEventListener("mouseover", function (e) {
-        hoverEvent(e.target.id)
+    container.childNodes.forEach(MouseDown => MouseDown.addEventListener("mousedown", function (e) {
+        //addMouseoverEvent();
+        //console.log(`${e.target.id} down`);
+        addremoveHoverEvent(e.type)
+        //console.log(e.type);
     }));
+    container.childNodes.forEach(MouseDown => MouseDown.addEventListener("mouseup", function (e) {
+        //removeMouseoverEvent()
+        //console.log(`${e.target.id} up`);
+        addremoveHoverEvent(e.type)
+        //console.log(e.type);
+    }));
+    /*container.childNodes.forEach(MouseOver => MouseOver.addEventListener("mouseover", function (e) {
+        hoverEvent(e.target.id)
+    }));*/
 }
 
 function eraseContainer()
