@@ -20,6 +20,12 @@ function get_size_element(rows, cols)
     return arr;
 }
 
+/**
+ * 
+ * @param { int } rows 
+ * @param { int } cols 
+ * @returns html element div s dětmi div
+ */
 function createDivs(rows, cols)
 {
     const container = createContainer();
